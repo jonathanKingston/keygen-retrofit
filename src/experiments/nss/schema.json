@@ -1,0 +1,25 @@
+[
+  {
+    "namespace": "experiments.nss",
+    "description": "API for supporting nss ",
+    "types": [
+    ],
+    "events": [
+    ],
+    "functions": [
+      {
+        "name": "addCert",
+        "type": "function",
+        "description": "Returns a Promise that resolves when we have added a cert",
+        "async": true,
+        "parameters": [
+          {
+            "type": "string",
+            "name": "cert",
+            "description": "the cert we want to save"
+          }
+        ]
+      }
+    ]
+  }
+]

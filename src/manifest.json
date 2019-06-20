@@ -1,0 +1,49 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_extensionName__",
+  "default_locale": "en_US",
+  "version": "1.0.0",
+  "author": "Mozilla Developers",
+
+  "description": "",
+  "incognito": "spanning",
+
+  "permissions": [
+      "<all_urls>",
+      "browsingData",
+      "contextualIdentities",
+      "cookies",
+      "identity",
+      "management",
+      "storage",
+      "tabs",
+      "webRequestBlocking",
+      "webRequest",
+      "proxy",
+      "webNavigation"
+  ],
+
+  "experiment_apis": {
+    "nss": {
+      "schema": "experiments/nss/schema.json",
+      "parent": {
+        "scopes": ["addon_parent"],
+        "script": "experiments/nss/api.js",
+        "paths": [["experiments", "nss"]]
+      }
+    }
+  },
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"]
+    }
+  ],
+
+  "background": {
+      "scripts": [
+        "background.js"
+      ]
+  }
+}

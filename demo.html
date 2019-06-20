@@ -1,0 +1,28 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <form id="myForm" method="post" action="https://example.com">
+      <div id="myFormContent">
+        <keygen challenge="boop" name="test" />
+        Hey <keygen name="other" />
+      </div>
+      <div id="other">
+      </div>
+      <input type="submit" />
+    </form>
+    <script>
+      function init() {
+        // It seems like this element shouldn't be handled as the parser doesn't pick it up
+        let keygen = document.createElement("keygen");
+        myFormContent.appendChild(keygen);
+        other.innerHTML = `<keygen name="other" challenge="test" />`;
+      }
+      setTimeout(init, 1000);
+      myForm.addEventListener("submit", (e) => {
+        console.log(e);
+        //e.preventDefault();
+      });
+    </script>
+  </body>
+</html>
